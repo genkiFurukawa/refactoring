@@ -29,7 +29,7 @@ public class Customer {
 
         // 1行ごとに金額を計算
         for (Rental rental : this.rentals) {
-            double thisAmount = amountFor(rental);
+            double thisAmount = rental.getCharge();
             // レンタルポイントを加算
             frequntRenterPoints++;
 
@@ -47,9 +47,5 @@ public class Customer {
         result += "You earned " + frequntRenterPoints + " frequnt renter points";
 
         return result;
-    }
-
-    private double amountFor(Rental rental) {
-        return rental.getCharge();
     }
 }
