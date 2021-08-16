@@ -17,7 +17,7 @@ public class App {
         rental = new Rental(movie, 1);
         customer.addRental(rental);
 
-        String result = customer.statement();
+        String result = customer.htmlStatement();
         System.out.println(result);
         System.out.println("<< App.main()");
     }
