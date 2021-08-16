@@ -13,7 +13,7 @@ public class Movie {
             int priceCode
     ) {
         this.title = title;
-        this.priceCode = priceCode;
+        setPriceCode(priceCode);
     }
 
     public int getPriceCode() {
