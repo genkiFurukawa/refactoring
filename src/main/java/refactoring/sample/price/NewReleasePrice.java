@@ -10,4 +10,12 @@ public class NewReleasePrice extends Price {
     public double getCharge(int dayRented) {
         return dayRented * 3;
     }
+
+    public int getFrequentRenterPoints(int daysRented) {
+        if (daysRented > 1) {
+            return 2;
+        } else {
+            return 1;
+        }
+    }
 }
