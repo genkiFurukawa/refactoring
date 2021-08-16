@@ -23,19 +23,14 @@ public class Customer {
 
     public String statement() {
         double totalAmount = 0;
-        int frequntRenterPoints = 0;
+        int frequentRenterPoints = 0;
 
         String result = "Rental Record for " + getName() + "¥n";
 
         // 1行ごとに金額を計算
         for (Rental rental : this.rentals) {
             // レンタルポイントを加算
-            frequntRenterPoints++;
-
-            // 新作を2日以上借りた場合はボーナスポイント
-            if (rental.getMovie().getPriceCode() == Movie.NEW_RELEASE && rental.getDaysRented() > 1) {
-                frequntRenterPoints++;
-            }
+            frequentRenterPoints += rental.getFrequentRenterPoints();
 
             // この貸し出しに関する数値の表示
             result += "¥t" + rental.getMovie().getTitle() + "¥t" + rental.getCharge() + "¥n";
@@ -43,7 +38,7 @@ public class Customer {
         }
         // フッタ部分の追加
         result += "Amount owed is " + totalAmount + "¥n";
-        result += "You earned " + frequntRenterPoints + " frequnt renter points";
+        result += "You earned " + frequentRenterPoints + " frequnt renter points";
 
         return result;
     }
