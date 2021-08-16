@@ -29,7 +29,6 @@ public class Customer {
 
         // 1行ごとに金額を計算
         for (Rental rental : this.rentals) {
-            double thisAmount = rental.getCharge();
             // レンタルポイントを加算
             frequntRenterPoints++;
 
@@ -39,8 +38,8 @@ public class Customer {
             }
 
             // この貸し出しに関する数値の表示
-            result += "¥t" + rental.getMovie().getTitle() + "¥t" + thisAmount + "¥n";
-            totalAmount += thisAmount;
+            result += "¥t" + rental.getMovie().getTitle() + "¥t" + rental.getCharge() + "¥n";
+            totalAmount += rental.getCharge();
         }
         // フッタ部分の追加
         result += "Amount owed is " + totalAmount + "¥n";
